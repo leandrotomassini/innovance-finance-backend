@@ -9,8 +9,7 @@ export const googleSignIn = async (req: Request, res: Response) => {
     try {
 
         const { correo, nombre, img } = await googleVerify(id_token);
-        
-        await googleVerify(id_token);
+
 
         res.json({
             ok: true,

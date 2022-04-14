@@ -1,21 +1,23 @@
 import { Request, Response } from 'express';
 
-import { googleVerify } from '../helpers/google-verify';
 
 export const googleSignIn = async (req: Request, res: Response) => {
 
-    const { id_token } = req.body;
+    const { google_email, name, img } = req.body;
 
     try {
 
-        const { correo, nombre, img } = await googleVerify(id_token);
+        // TODO: verificar  el email
 
+        // Verificiar si es un email autorizado y el estado del usuario en la DB
+
+        // Generar un JWT
 
         res.json({
             ok: true,
             msg: 'Inicio de sesión con Google correcto',
-            correo,
-            nombre,
+            google_email,
+            name,
             img
         })
 

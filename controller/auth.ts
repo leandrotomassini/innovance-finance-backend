@@ -3,7 +3,7 @@ import { QueryResult } from 'pg';
 
 import { pool } from '../database/connection';
 
-export const googleSignIn = async (req: Request, res: Response): Promise<QueryResult> => {
+export const googleSignIn = async (req: Request, res: Response) => {
 
     const { google_email, name, img } = req.body;
 

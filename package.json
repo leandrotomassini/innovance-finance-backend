@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/leandrotomassini/REST-API-TypeScript#readme",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/pg": "^8.6.5",
@@ -26,9 +27,11 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3"
   }
 }

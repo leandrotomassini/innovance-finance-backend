@@ -2,17 +2,18 @@ const { Schema, model } = require('mongoose');
 
 const SubscriptorSchema = Schema({
     subscripcion: {
-        type: String,
-        required: [true, 'El nombre para la subscripción es obligatorio.']
+        type: Schema.Types.ObjectId,
+        ref: 'Subscripcione',
+        required: true
     },
     usuario: {
-        type: Number,
-        required: [true, 'El precio para la subscripción es obligatorio.']
+       type: Schema.Types.ObjectId,
+       ref: 'Usuario',
+       required: true
     },
     vencimiento: {
-        type: Boolean,
-        required: false,
-        default: true
+        type: Date,
+        default: new Date()
     }
 });
 

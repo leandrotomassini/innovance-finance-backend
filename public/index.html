@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sign-in</title>
+</head>
+
+<body>
+
+    <h1>Google Sign-in</h1>
+
+    <hr>
+
+    <div id="g_id_onload" data-client_id="874731496566-l1249to0qs4pnbgeh8p37d0qc4b0cbmi.apps.googleusercontent.com"
+        data-auto_prompt="false" data-callback="handleCredentialResponse">
+    </div>
+
+    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with"
+        data-shape="rectangular" data-logo_alignment="left">
+    </div>
+
+    <button id="google_signout">
+        Signout
+    </button>
+
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <script>
+        function handleCredentialResponse(response) {
+
+            // console.log('Google Token: ', response.credential);
+            const body = { id_token: response.credential };
+
+
+            fetch('http://localhost:8080/api/auth/google', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            })
+                .then(resp => resp.json())
+                .then(resp => {
+                    console.log(resp);
+                    localStorage.setItem('email', resp.usuario.correo)
+                })
+                .catch(console.warn);
+        }
+
+        const button = document.getElementById('google_signout');
+
+        button.onclick = () => {
+            console.log(google.accounts.id);
+            google.accounts.id.disableAutoSelect();
+
+            google.accounts.id.revoke(localStorage.getItem('email'), done => {
+                localStorage.clear();
+                location.reload();
+            });
+        }
+    </script>
+
+    <!-- Ejemplo para borrar -->
+    <script>
+
+        let hoy = new Date();
+        hoy.setMonth(hoy.getMonth() - 12);
+        console.log("fecha: " + hoy.getFullYear() + "-" + (hoy.getMonth() + 1) + "-" + hoy.getDate());
+
+        var f1 = new Date(2015, 11, 31); //31 de diciembre de 2015
+        var f2 = new Date(2024, 10, 30); //30 de noviembre de 2014
+
+        if (f1 > f2) {
+            console.log("f1 > f2");
+        }
+        if (f1 < f2) {
+            console.log("f1 < f2");
+        }
+
+    </script>
+
+</body>
+
+</html>

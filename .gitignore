@@ -1,8 +1,0 @@
-# Módulos de Node
-node_modules/
-
-# Package lock.json
-package-lock.json
-
-# Archivos de distribución
-# dist/

@@ -27,6 +27,15 @@ const existeSubscripcion = async (nombre = '') => {
     }
 }
 
+const existeSubscripcionPorId = async (id = '') => {
+
+    const existeSubscripcion = await Subscripcion.findById(id);
+
+    if (!existeSubscripcion) {
+        throw new Error(`La subscripción id ${id} no existe.`);
+    }
+}
+
 const existeUsuarioPorId = async (id) => {
 
     // Verificar si el correo existe
@@ -80,6 +89,7 @@ module.exports = {
     existeCategoriaPorId,
     existeProductoPorId,
     coleccionesPermitidas,
-    existeSubscripcion
+    existeSubscripcion,
+    existeSubscripcionPorId
 }
 

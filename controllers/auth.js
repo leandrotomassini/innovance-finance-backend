@@ -28,6 +28,8 @@ const login = async (req, res = response) => {
             });
         }
 
+        // TODO: Verificar si es alumno y si la subscripción se encuentra activa
+
         // Verificar la contraseña
         const validPassword = bcryptjs.compareSync(password, usuario.password);
         if (!validPassword) {

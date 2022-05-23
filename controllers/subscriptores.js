@@ -7,8 +7,6 @@ const subscribirse = async (req, res = response) => {
 
     const { subscripcion, meses, usuario } = req.body;
 
-    // Si ya tiene subscripción:
-
     const subscripcionActual = await Subscriptor.findOne({ usuario });
 
     if (subscripcionActual) {
@@ -58,6 +56,39 @@ const subscribirse = async (req, res = response) => {
 }
 
 
+const obtenerSubscriptores = (req, res = response) => {
+
+
+    return res.json({
+        ok: true,
+        msg: 'Subscriptores.'
+    });
+}
+
+const obtenerSubscriptor = (req, res = response) => {
+
+    const { idusuario } = req.params;
+
+    return res.json({
+        ok: true,
+        idusuario
+    });
+}
+
+const borrarSubscriptor = (req, res = response) => {
+
+    const { idusuario } = req.params;
+
+    return res.json({
+        ok: true,
+        idusuario
+    });
+}
+
+
 module.exports = {
-    subscribirse
+    subscribirse,
+    obtenerSubscriptores,
+    obtenerSubscriptor,
+    borrarSubscriptor
 }

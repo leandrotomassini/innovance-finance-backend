@@ -13,6 +13,10 @@ const EscuelaSchema = Schema({
         type: String,
         required: [true, 'El ícono de la escuela es obligatoria.']
     },
+    estado: {
+        type: Boolean,
+        default: true
+    }
 });
 
 module.exports = model('Escuela', EscuelaSchema);

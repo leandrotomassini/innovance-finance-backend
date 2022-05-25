@@ -15,7 +15,7 @@ class Server {
             usuarios: '/api/usuarios',
             subscripciones: '/api/subscripciones',
             subscriptores: '/api/subscriptores',
-            escuela: '/api/escuelas',
+            escuelas: '/api/escuelas',
         }
 
 
@@ -61,7 +61,7 @@ class Server {
         this.app.use(this.paths.subscriptores, require('../routes/subscriptores'));
 
         // TODO: 
-        // this.app.use(this.paths.escuelas, require('../routes/escuelas'));
+        this.app.use(this.paths.escuelas, require('../routes/escuelas'));
 
         // this.app.use(this.paths.posts, require('../routes/posts'));
         // this.app.use(this.paths.cursos, require('../routes/cursos'));

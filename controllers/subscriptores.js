@@ -56,32 +56,42 @@ const subscribirse = async (req, res = response) => {
 }
 
 
-const obtenerSubscriptores = (req, res = response) => {
+const obtenerSubscriptores = async (req, res = response) => {
 
+    const subscriptores = await Subscriptor.find()
+        .populate('usuario', 'nombre')
+        .populate('subscripcion', 'nombre');
 
     return res.json({
         ok: true,
-        msg: 'Subscriptores.'
+        subscriptores
     });
 }
 
-const obtenerSubscriptor = (req, res = response) => {
+const obtenerSubscriptor = async (req, res = response) => {
 
     const { idusuario } = req.params;
 
+    const subscriptor = await Subscriptor.findOne({ usuario: idusuario })
+        .populate('usuario', 'nombre')
+        .populate('subscripcion', 'nombre');
+
     return res.json({
         ok: true,
-        idusuario
+        subscriptor
     });
 }
 
-const borrarSubscriptor = (req, res = response) => {
+const borrarSubscriptor = async (req, res = response) => {
 
     const { idusuario } = req.params;
 
+    await Subscriptor.findOneAndDelete({ usuario: idusuario });
+
+
     return res.json({
         ok: true,
-        idusuario
+        msg: 'Subscripción eliminada.'
     });
 }
 

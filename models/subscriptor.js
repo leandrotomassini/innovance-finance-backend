@@ -7,9 +7,9 @@ const SubscriptorSchema = Schema({
         required: true
     },
     usuario: {
-       type: Schema.Types.ObjectId,
-       ref: 'Usuario',
-       required: true
+        type: Schema.Types.ObjectId,
+        ref: 'Usuario',
+        required: true
     },
     vencimiento: {
         type: Date,

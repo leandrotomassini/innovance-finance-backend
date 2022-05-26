@@ -17,6 +17,7 @@ const UsuarioSchema = Schema({
     },
     img: {
         type: String,
+        default: 'https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y'
     },
     rol: {
         type: String,

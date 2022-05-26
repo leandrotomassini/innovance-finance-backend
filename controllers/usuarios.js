@@ -26,7 +26,7 @@ const usuariosGet = async(req = request, res = response) => {
 
 const usuariosPost = async(req, res = response) => {
     
-    const { nombre, correo, password, rol } = req.body;
+    const { nombre, correo, password, img, rol } = req.body;
     const usuario = new Usuario({ nombre, correo, password, rol });
 
     // Encriptar la contraseña
@@ -71,9 +71,6 @@ const usuariosDelete = async(req, res = response) => {
     
     res.json(usuario);
 }
-
-
-
 
 module.exports = {
     usuariosGet,

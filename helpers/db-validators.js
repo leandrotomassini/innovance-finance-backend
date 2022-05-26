@@ -1,5 +1,5 @@
 const Role = require('../models/role');
-const { Usuario, Categoria, Producto, Subscripcion } = require('../models');
+const { Usuario, Categoria, Producto, Subscripcion, Escuela } = require('../models');
 
 const esRoleValido = async (rol = '') => {
 
@@ -27,6 +27,15 @@ const existeSubscripcion = async (nombre = '') => {
     }
 }
 
+const existeEscuela = async (nombre = '') => {
+
+    const existeEscuela = await Escuela.findOne({ nombre });
+
+    if (existeEscuela) {
+        throw new Error(`La escuela ${nombre} ya existe.`);
+    }
+}
+
 const existeSubscripcionPorId = async (id = '') => {
 
     const existeSubscripcion = await Subscripcion.findById(id);
@@ -35,6 +44,7 @@ const existeSubscripcionPorId = async (id = '') => {
         throw new Error(`La subscripción id ${id} no existe.`);
     }
 }
+
 
 const existeUsuarioPorId = async (id) => {
 
@@ -57,17 +67,7 @@ const existeCategoriaPorId = async (id) => {
     }
 }
 
-/**
- * Productos
- */
-const existeProductoPorId = async (id) => {
 
-    // Verificar si el correo existe
-    const existeProducto = await Producto.findById(id);
-    if (!existeProducto) {
-        throw new Error(`El id no existe ${id}`);
-    }
-}
 
 /**
  * Validar colecciones permitidas
@@ -87,9 +87,9 @@ module.exports = {
     emailExiste,
     existeUsuarioPorId,
     existeCategoriaPorId,
-    existeProductoPorId,
     coleccionesPermitidas,
     existeSubscripcion,
-    existeSubscripcionPorId
+    existeSubscripcionPorId,
+    existeEscuela
 }
 

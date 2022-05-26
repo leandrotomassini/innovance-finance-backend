@@ -1,7 +1,9 @@
 const { Router } = require("express");
 const { check } = require('express-validator');
 
-const { obtenerEscuelas } = require("../controllers/escuelas");
+const { obtenerEscuelas, crearEscuela, editarEscuela, borrarEscuela } = require("../controllers/escuelas");
+
+const { existeEscuela } = require("../helpers/db-validators");
 
 const {
     validarCampos,
@@ -13,26 +15,25 @@ const router = Router();
 
 router.get('/', obtenerEscuelas);
 
-// router.post('/', [
-//     validarJWT,
-//     // esAdminRole,
-//     tieneRole('ADMINISTRADOR'),
-//     check('nombre').custom(existeSubscripcion),
-//     validarCampos
-// ], crearEscuela);
+router.post('/', [
+    validarJWT,
+    tieneRole('ADMINISTRADOR'),
+    check('nombre').custom(existeEscuela),
+    validarCampos
+], crearEscuela);
 
-// router.put('/:id', [
-//     validarJWT,
-//     // esAdminRole,
-//     tieneRole('ADMINISTRADOR'),
-//     validarCampos
-// ], editarSubscripcion);
+router.put('/:id', [
+    validarJWT,
+    // esAdminRole,
+    tieneRole('ADMINISTRADOR'),
+    validarCampos
+], editarEscuela);
 
-// router.delete('/:id', [
-//     validarJWT,
-//     // esAdminRole,
-//     tieneRole('ADMINISTRADOR'),
-//     validarCampos
-// ], borrarSubscripcion);
+router.delete('/:id', [
+    validarJWT,
+    // esAdminRole,
+    tieneRole('ADMINISTRADOR'),
+    validarCampos
+], borrarEscuela);
 
 module.exports = router;

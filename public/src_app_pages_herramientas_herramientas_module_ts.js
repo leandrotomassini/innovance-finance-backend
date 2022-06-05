@@ -135,7 +135,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
   \**********************************************************************/
 /***/ ((module) => {
 
-module.exports = "<app-header titulo=\"Herramientas\"></app-header>\n\n<ion-content>\n\n</ion-content>\n";
+module.exports = "<app-header titulo=\"Herramientas\"></app-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content>\r\n";
 
 /***/ })
 

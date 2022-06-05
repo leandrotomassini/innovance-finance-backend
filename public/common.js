@@ -14,8 +14,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 3184);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 6362);
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header/header.component */ 3646);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ 3819);
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header/header.component */ 3646);
 
 
 
@@ -26,10 +26,10 @@ let ComponentsModule = class ComponentsModule {
 ComponentsModule = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.NgModule)({
         declarations: [
-            _header_header_component__WEBPACK_IMPORTED_MODULE_0__.HeaderComponent
+            _header_header_component__WEBPACK_IMPORTED_MODULE_0__.HeaderComponent,
         ],
         exports: [
-            _header_header_component__WEBPACK_IMPORTED_MODULE_0__.HeaderComponent
+            _header_header_component__WEBPACK_IMPORTED_MODULE_0__.HeaderComponent,
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule,
@@ -1322,7 +1322,7 @@ module.exports = "ion-toolbar {\n  padding-right: 1em;\n}\n\nion-icon {\n  font-
   \********************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header class=\"ion-no-border\" translucent>\n  <ion-toolbar>\n\n    <ion-title class=\"ion-text-capitalize\" slot=\"start\">\n      {{ titulo }}\n    </ion-title>\n\n    <ion-icon name=\"notifications-outline\" slot=\"end\"></ion-icon>\n\n  </ion-toolbar>\n</ion-header>\n";
+module.exports = "<ion-header class=\"ion-no-border\" translucent>\r\n  <ion-toolbar>\r\n\r\n    <ion-title class=\"ion-text-capitalize\" slot=\"start\">\r\n      {{ titulo }}\r\n    </ion-title>\r\n\r\n    <ion-icon name=\"notifications-outline\" slot=\"end\"></ion-icon>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n";
 
 /***/ })
 

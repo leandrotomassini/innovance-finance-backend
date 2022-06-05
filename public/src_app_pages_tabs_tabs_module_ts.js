@@ -63,6 +63,18 @@ const routes = [
                 canLoad: [src_app_guards_usuario_guard__WEBPACK_IMPORTED_MODULE_0__.UsuarioGuard]
             },
             {
+                path: 'perfil/panel-control/usuarios-listado',
+                loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_usuarios-listado_usuarios-listado_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../usuarios-listado/usuarios-listado.module */ 1859)).then(m => m.UsuariosListadoPageModule)
+            },
+            {
+                path: 'perfil/panel-control/usuarios-listado/editar-usuario/:idusuario',
+                loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_editar-usuario_editar-usuario_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../editar-usuario/editar-usuario.module */ 1433)).then(m => m.EditarUsuarioPageModule)
+            },
+            {
+                path: 'perfil/panel-control/usuarios-listado/crear-usuario',
+                loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_crear-usuario_crear-usuario_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../crear-usuario/crear-usuario.module */ 5501)).then(m => m.CrearUsuarioPageModule)
+            },
+            {
                 path: '',
                 redirectTo: '/aprender',
                 pathMatch: 'full'
@@ -167,7 +179,7 @@ TabsPage = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
   \******************************************************/
 /***/ ((module) => {
 
-module.exports = "ion-tab-bar {\n  --background: var(--ion-color-fondo-menu);\n  --color: var(--ion-texto-azulado);\n  border: 0;\n  margin-top: -1px;\n}\n\nion-tab-button {\n  --color-selected: var(--ion-verde-manzana);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRhYnMucGFnZS5zY3NzIiwiLi5cXC4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXC4uXFxXaW5kb3dzJTIwMTBcXERlc2t0b3BcXGlubm92YW5jZS1maW5hbmNlXFxpbm5vdmFuY2UtZmluYW5jZVxcc3JjXFxhcHBcXHBhZ2VzXFx0YWJzXFx0YWJzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHlDQUFBO0VBQ0EsaUNBQUE7RUFDQSxTQUFBO0VBQ0EsZ0JBQUE7QUNDRjs7QURFQTtFQUNFLDBDQUFBO0FDQ0YiLCJmaWxlIjoidGFicy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tdGFiLWJhciB7XG4gIC0tYmFja2dyb3VuZDogdmFyKC0taW9uLWNvbG9yLWZvbmRvLW1lbnUpO1xuICAtLWNvbG9yOiB2YXIoLS1pb24tdGV4dG8tYXp1bGFkbyk7XG4gIGJvcmRlcjogMDtcbiAgbWFyZ2luLXRvcDogLTFweDtcbn1cblxuaW9uLXRhYi1idXR0b24ge1xuICAtLWNvbG9yLXNlbGVjdGVkOiB2YXIoLS1pb24tdmVyZGUtbWFuemFuYSk7XG59XG4iLCJpb24tdGFiLWJhciB7XG4gIC0tYmFja2dyb3VuZDogdmFyKC0taW9uLWNvbG9yLWZvbmRvLW1lbnUpO1xuICAtLWNvbG9yOiB2YXIoLS1pb24tdGV4dG8tYXp1bGFkbyk7XG4gIGJvcmRlcjogMDtcbiAgbWFyZ2luLXRvcDogLTFweDtcbn1cblxuaW9uLXRhYi1idXR0b24ge1xuICAtLWNvbG9yLXNlbGVjdGVkOiB2YXIoLS1pb24tdmVyZGUtbWFuemFuYSk7XG59Il19 */";
+module.exports = "ion-tab-bar {\n  --background: var(--ion-color-fondo-menu);\n  --color: var(--ion-texto-azulado);\n  border: 0;\n  margin-top: -1px;\n}\n\nion-tab-button {\n  --color-selected: var(--ion-verde-manzana);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRhYnMucGFnZS5zY3NzIiwiLi5cXC4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXC4uXFxXaW5kb3dzJTIwMTBcXERlc2t0b3BcXGlubm92YW5jZS1maW5hbmNlXFxpbm5vdmFuY2UtZmluYW5jZVxcc3JjXFxhcHBcXHBhZ2VzXFx0YWJzXFx0YWJzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHlDQUFBO0VBQ0EsaUNBQUE7RUFDQSxTQUFBO0VBQ0EsZ0JBQUE7QUNDRjs7QURFQTtFQUNFLDBDQUFBO0FDQ0YiLCJmaWxlIjoidGFicy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tdGFiLWJhciB7XHJcbiAgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24tY29sb3ItZm9uZG8tbWVudSk7XHJcbiAgLS1jb2xvcjogdmFyKC0taW9uLXRleHRvLWF6dWxhZG8pO1xyXG4gIGJvcmRlcjogMDtcclxuICBtYXJnaW4tdG9wOiAtMXB4O1xyXG59XHJcblxyXG5pb24tdGFiLWJ1dHRvbiB7XHJcbiAgLS1jb2xvci1zZWxlY3RlZDogdmFyKC0taW9uLXZlcmRlLW1hbnphbmEpO1xyXG59XHJcbiIsImlvbi10YWItYmFyIHtcbiAgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24tY29sb3ItZm9uZG8tbWVudSk7XG4gIC0tY29sb3I6IHZhcigtLWlvbi10ZXh0by1henVsYWRvKTtcbiAgYm9yZGVyOiAwO1xuICBtYXJnaW4tdG9wOiAtMXB4O1xufVxuXG5pb24tdGFiLWJ1dHRvbiB7XG4gIC0tY29sb3Itc2VsZWN0ZWQ6IHZhcigtLWlvbi12ZXJkZS1tYW56YW5hKTtcbn0iXX0= */";
 
 /***/ }),
 
@@ -177,7 +189,7 @@ module.exports = "ion-tab-bar {\n  --background: var(--ion-color-fondo-menu);\n 
   \******************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-tabs>\n\n  <ion-tab-bar slot=\"bottom\">\n\n    <ion-tab-button tab=\"aprender\">\n      <ion-icon name=\"library-outline\"></ion-icon>\n      <ion-label>Aprender</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"buscar\">\n      <ion-icon name=\"search-outline\"></ion-icon>\n      <ion-label>Buscar</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"comunidad\">\n      <ion-icon name=\"people-outline\"></ion-icon>\n      <ion-label>Comunidad</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"herramientas\">\n      <ion-icon name=\"logo-apple-ar\"></ion-icon>\n      <ion-label>Herramientas</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"perfil\">\n      <ion-icon name=\"person-outline\"></ion-icon>\n      <ion-label>Perfil</ion-label>\n    </ion-tab-button>\n\n  </ion-tab-bar>\n\n</ion-tabs>\n";
+module.exports = "<ion-tabs>\r\n\r\n  <ion-tab-bar slot=\"bottom\">\r\n\r\n    <ion-tab-button tab=\"aprender\">\r\n      <ion-icon name=\"library-outline\"></ion-icon>\r\n      <ion-label>Aprender</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"buscar\">\r\n      <ion-icon name=\"search-outline\"></ion-icon>\r\n      <ion-label>Buscar</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"comunidad\">\r\n      <ion-icon name=\"people-outline\"></ion-icon>\r\n      <ion-label>Comunidad</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"herramientas\">\r\n      <ion-icon name=\"logo-apple-ar\"></ion-icon>\r\n      <ion-label>Herramientas</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"perfil\">\r\n      <ion-icon name=\"person-outline\"></ion-icon>\r\n      <ion-label>Perfil</ion-label>\r\n    </ion-tab-button>\r\n\r\n  </ion-tab-bar>\r\n\r\n</ion-tabs>\r\n";
 
 /***/ })
 

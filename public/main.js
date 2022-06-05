@@ -226,6 +226,57 @@ let UsuarioService = class UsuarioService {
         this.storage.clear();
         this.navCtrl.navigateRoot('/login', { animated: true });
     }
+    obtenerUsuarios() {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__awaiter)(this, void 0, void 0, function* () {
+            yield this.cargarToken();
+            if (!this.token) {
+                console.log('rechazado.');
+                this.navCtrl.navigateRoot('/login');
+                return Promise.resolve(false);
+            }
+            return new Promise(resolve => {
+                const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+                    'x-token': this.token
+                });
+                this.http.get(`${URL}/api/usuarios?desde=0&limite=100 `, { headers })
+                    .subscribe(resp => {
+                    if (resp['ok']) {
+                        this.usuarios = resp['usuarios'];
+                        resolve(this.usuarios);
+                    }
+                    else {
+                        this.navCtrl.navigateRoot('/login');
+                        resolve(false);
+                    }
+                });
+            });
+        });
+    }
+    obtenerUsuario(id) {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__awaiter)(this, void 0, void 0, function* () {
+            yield this.cargarToken();
+            if (!this.token) {
+                console.log('rechazado.');
+                this.navCtrl.navigateRoot('/login');
+                return Promise.resolve(false);
+            }
+            return new Promise(resolve => {
+                const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+                    'x-token': this.token
+                });
+                this.http.get(`${URL}/api/usuarios/${id} `, { headers })
+                    .subscribe(resp => {
+                    if (resp['ok']) {
+                        resolve(resp['usuario']);
+                    }
+                    else {
+                        this.navCtrl.navigateRoot('/login');
+                        resolve(false);
+                    }
+                });
+            });
+        });
+    }
     guardarToken(token) {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__awaiter)(this, void 0, void 0, function* () {
             this.token = token;
@@ -265,6 +316,39 @@ let UsuarioService = class UsuarioService {
             });
         });
     }
+    editarUsuario(idUsuario, informacion) {
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+            'x-token': this.token
+        });
+        return new Promise(resolve => {
+            this.http.put(`${URL}/api/usuarios/${idUsuario}`, informacion, { headers })
+                .subscribe(resp => {
+                resolve(true);
+            });
+        });
+    }
+    crearUsuario(informacion) {
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+            'x-token': this.token
+        });
+        return new Promise(resolve => {
+            this.http.post(`${URL}/api/usuarios`, informacion, { headers })
+                .subscribe(resp => {
+                resolve(true);
+            });
+        });
+    }
+    borrarUsuario(idUsuario) {
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+            'x-token': this.token
+        });
+        return new Promise(resolve => {
+            this.http.delete(`${URL}/api/usuarios/${idUsuario}`, { headers })
+                .subscribe(resp => {
+                resolve(true);
+            });
+        });
+    }
 };
 UsuarioService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpClient },
@@ -297,7 +381,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    url: 'https://innovance-finance-backend.herokuapp.com'
+    url: 'http://localhost:3000'
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -609,7 +693,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /***/ ((module) => {
 
 "use strict";
-module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n";
+module.exports = "<ion-app>\r\n  <ion-router-outlet></ion-router-outlet>\r\n</ion-app>\r\n";
 
 /***/ })
 

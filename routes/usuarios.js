@@ -15,7 +15,8 @@ const { usuariosGet,
         usuariosPut,
         usuariosPost,
         usuariosDelete,
-        usuariosPatch } = require('../controllers/usuarios');
+        usuariosPatch, 
+        obtenerUsuario} = require('../controllers/usuarios');
 
 const router = Router();
 
@@ -27,7 +28,16 @@ router.get('/',[
     validarCampos
 ],usuariosGet );
 
+router.get('/:id',[
+    validarJWT,
+    tieneRole('ADMINISTRADOR'),
+    check('id', 'No es un ID válido').isMongoId(),
+    validarCampos
+], obtenerUsuario );
+
 router.put('/:id',[
+    validarJWT,
+    tieneRole('ADMINISTRADOR'),
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeUsuarioPorId ),
     check('rol').custom( esRoleValido ), 

@@ -67,14 +67,6 @@ const routes = [
                 loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_usuarios-listado_usuarios-listado_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../usuarios-listado/usuarios-listado.module */ 1859)).then(m => m.UsuariosListadoPageModule)
             },
             {
-                path: 'perfil/panel-control/usuarios-listado/editar-usuario/:idusuario',
-                loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_editar-usuario_editar-usuario_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../editar-usuario/editar-usuario.module */ 1433)).then(m => m.EditarUsuarioPageModule)
-            },
-            {
-                path: 'perfil/panel-control/usuarios-listado/crear-usuario',
-                loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_crear-usuario_crear-usuario_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../crear-usuario/crear-usuario.module */ 5501)).then(m => m.CrearUsuarioPageModule)
-            },
-            {
                 path: '',
                 redirectTo: '/aprender',
                 pathMatch: 'full'

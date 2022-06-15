@@ -16,7 +16,8 @@ const { usuariosGet,
         usuariosPost,
         usuariosDelete,
         usuariosPatch, 
-        obtenerUsuario} = require('../controllers/usuarios');
+        obtenerUsuario,
+        rolesGet} = require('../controllers/usuarios');
 
 const router = Router();
 
@@ -27,6 +28,13 @@ router.get('/',[
     tieneRole('ADMINISTRADOR'),
     validarCampos
 ],usuariosGet );
+
+router.get('/roles',[
+    validarJWT,
+    // esAdminRole,
+    tieneRole('ADMINISTRADOR'),
+    validarCampos
+], rolesGet);
 
 router.get('/:id',[
     validarJWT,

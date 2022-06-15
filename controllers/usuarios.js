@@ -3,6 +3,7 @@ const bcryptjs = require('bcryptjs');
 
 
 const Usuario = require('../models/usuario');
+const Roles = require('../models/role');
 
 
 
@@ -22,6 +23,20 @@ const usuariosGet = async (req = request, res = response) => {
         ok: true,
         total,
         usuarios
+    });
+}
+
+const rolesGet = async (req = request, res = response) => {
+
+    const [total, roles] = await Promise.all([
+        Roles.countDocuments(),
+        Roles.find()
+    ]);
+
+    res.json({
+        ok: true,
+        total,
+        roles
     });
 }
 
@@ -100,5 +115,6 @@ module.exports = {
     usuariosPut,
     usuariosPatch,
     usuariosDelete,
-    obtenerUsuario
+    obtenerUsuario,
+    rolesGet
 }

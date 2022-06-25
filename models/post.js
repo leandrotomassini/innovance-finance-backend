@@ -14,10 +14,17 @@ const PostSchema = Schema({
         required: false,
         default: ''
     },
+    categorias: [{
+        type: String
+    }],
     usuario: {
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
         required: true
+    },
+    estado: {
+        type: Boolean,
+        default: true
     }
 });
 

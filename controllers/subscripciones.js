@@ -16,6 +16,7 @@ const obtenerSubscripciones = async (req = request, res = response) => {
     ]);
 
     res.json({
+        ok:true,
         total,
         subscripciones
     });

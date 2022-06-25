@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const { check } = require('express-validator');
 
-const { obtenerPosts, actualizarPost, editarPost, crearPost } = require("../controllers/posts");
+const { obtenerPosts, nuevoArticulo } = require("../controllers/posts");
 
 const { existeSubscripcionPorId } = require("../helpers/db-validators");
 
@@ -14,31 +14,20 @@ const {
 
 const router = Router();
 
-router.get('/:idsubscripcion',[
+router.get('/',[
     validarJWT,
     validarCampos,
-    existeSubscripcionPorId
 ], obtenerPosts);
 
-// router.post('/:idsubscripcion', [
-//     validarJWT,
-//     tieneRole('ADMINISTRADOR'),
-//     check('nombre').custom(existeEscuela),
-//     validarCampos
-// ], crearPost);
+router.post('/', [
+    validarJWT,
+    tieneRole('ADMINISTRADOR'),
+    check('titulo', 'El título es obligatorio').not().isEmpty(),
+    check('contenido', 'El contenido es obligatorio').isLength({ min: 20 }),
+    check('categorias', 'La categoría es obligatoria.').not().isEmpty(),
+    validarCampos
+], nuevoArticulo);
 
-// router.put('/:id', [
-//     validarJWT,
-//     // esAdminRole,
-//     tieneRole('ADMINISTRADOR'),
-//     validarCampos
-// ], editarPost);
-
-// router.delete('/:id', [
-//     validarJWT,
-//     // esAdminRole,
-//     tieneRole('ADMINISTRADOR'),
-//     validarCampos
-// ], actualizarPost);
 
 module.exports = router;
+

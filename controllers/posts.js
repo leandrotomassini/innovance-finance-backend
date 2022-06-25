@@ -1,54 +1,34 @@
 const { response } = require("express");
 
+const Post = require('../models/post');
 
-const obtenerPosts = (req, res = response) => {
+const obtenerPosts = async(req, res = response) => {
 
-    const idSubscripcion = req.params;
-
+    const query = { estado: true };
+    const articulos = await Post.find(query);
 
     return res.status(200).json({
         ok: true,
-        msg: idSubscripcion
+        articulos
     });
 }
 
+const nuevoArticulo = async (req, res = response) => {
 
-const cearPost = (req, res = response) => {
+    const { titulo, portada, contenido, categorias, usuario } = req.body;
 
-    
+    const post = new Post({ titulo, portada, contenido, categorias, usuario });
+    await post.save();
 
-
-    return res.json({
+    return res.status(200).json({
         ok: true,
-        msg: 'Crear post.'
+        post,
+        msg: 'Artículo nuevo creado.'
     });
 }
 
-const actualizarPost = (req, res = response) => {
-
-
-
-
-    return res.json({
-        ok: true,
-        msg: 'Crear post.'
-    });
-}
-
-const borrarPost = (req, res = response) => {
-
-
-
-
-    return res.json({
-        ok: true,
-        msg: 'Borrar post'
-    });
-}
 
 module.exports = {
-    obtenerPosts,
-    borrarPost,
-    cearPost,
-    actualizarPost
+    nuevoArticulo,
+    obtenerPosts
 }

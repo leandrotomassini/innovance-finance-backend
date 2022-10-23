@@ -2,15 +2,15 @@ import { Request, Response } from 'express';
 
 import { Rol } from '../models/rol';
 
-export const getRoles = (req: Request, res: Response) => {
+export const getRoles = async (req: Request, res: Response) => {
     try {
+        const query = { estado: true };
 
-        
-
+        const roles = await Rol.find(query);
 
         res.status(200).json({
             ok: true,
-            msg: 'Obtener el rol'
+            roles
         });
     } catch (error) {
         console.log(error);
@@ -58,15 +58,17 @@ export const postRol = async (req: Request, res: Response) => {
 
 }
 
-export const putRol = (req: Request, res: Response) => {
+export const putRol = async (req: Request, res: Response) => {
 
     try {
 
         const id = req.params.id;
 
+        const rol = await Rol.findByIdAndUpdate(id, req.body, { new: true });
 
         res.status(200).json({
             ok: true,
+            rol
         });
     } catch (error) {
         console.log(error);
@@ -75,5 +77,5 @@ export const putRol = (req: Request, res: Response) => {
             error
         });
     }
-} 
- 
+}
+

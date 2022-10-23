@@ -5,6 +5,7 @@ import Server from './classes/server';
 
 import roles from './routes/rol';
 import usuarios from './routes/usuario';
+import auth from './routes/auth';
 
 const server = Server.instance;
 
@@ -17,6 +18,7 @@ server.app.use(cors({ origin: true, credentials: true }));
 // Rutas
 server.app.use('/api/roles', roles);
 server.app.use('/api/usuarios', usuarios);
+server.app.use('/api/auth', auth);
 
 
 server.start(() => {

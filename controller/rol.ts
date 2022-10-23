@@ -31,7 +31,7 @@ export const postRol = async (req: Request, res: Response) => {
 
         if (rolDB) {
             return res.status(400).json({
-                msg: `El producto ${rolDB.rol}, ya existe`
+                msg: `El rol  ${rolDB.rol}, ya existe`
             });
         }
 

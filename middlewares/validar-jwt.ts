@@ -3,9 +3,9 @@ import jwt from 'jsonwebtoken';
 
 import { SECRETORPRIVATEKEY } from '../global/enviroment';
 
-const Usuario = require('../models/usuario');
+import { Usuario } from '../models/usuario';
 
-interface JwtPayload {
+export interface JwtPayload {
     uid: string
 }
 
@@ -46,7 +46,7 @@ export const validarJWT = async (req: Request, res: Response, next: Function) =>
 
     } catch (error) {
 
-        console.log(error);
+        // console.log(error);
         res.status(401).json({
             msg: 'Token no válido'
         })

@@ -32,6 +32,7 @@ export const googleSignIn = async (req: Request, res: Response) => {
         const token = await generarJWT(usuario!.id);
 
         res.json({
+            ok: true,
             usuario,
             token
         });

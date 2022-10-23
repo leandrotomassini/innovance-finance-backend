@@ -28,4 +28,10 @@ const UsuarioSchema = new Schema<UsuarioInterface>({
     },
 });
 
+UsuarioSchema.methods.toJSON = function () {
+    const { __v, _id, ...usuario } = this.toObject();
+    usuario.uid = _id;
+    return usuario;
+}
+
 export const Usuario = model<UsuarioInterface>('Usuario', UsuarioSchema);

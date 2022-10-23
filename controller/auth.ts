@@ -43,6 +43,17 @@ export const googleSignIn = async (req: Request, res: Response) => {
             msg: 'El token no se pudo verificar.'
         });
     }
+}
 
+export const renovarToken = async (req: Request, res: Response) => {
 
+    const { usuario } = req;
+
+    // Generar el JWT
+    const token = await generarJWT(usuario.id);
+
+    res.json({
+        usuario,
+        token
+    });
 }

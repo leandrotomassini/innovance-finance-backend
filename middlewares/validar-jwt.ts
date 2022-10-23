@@ -10,7 +10,7 @@ export interface JwtPayload {
 }
 
 
-export const validarJWT = async (req: Request, res: Response, next: Function) => {
+export const  validarJWT = async (req: Request, res: Response, next: Function) => {
 
     try {
 

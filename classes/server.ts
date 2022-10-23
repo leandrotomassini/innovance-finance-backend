@@ -6,8 +6,11 @@ import * as socket from '../sockets/sockets';
 
 import { SERVER_PORT } from '../global/enviroment';
 
+import rolesRoutes from '../routes/rol';
+import { dbConnection } from '../database/config';
 
 export default class Server {
+
 
     private static _instance: Server;
 
@@ -22,9 +25,15 @@ export default class Server {
         this.port = SERVER_PORT;
         this.httpServer = new http.Server(this.app);
         this.io = new socketIO.Server(this.httpServer, { cors: { origin: true, credentials: true } });
-
+        this.conectarDB();
         this.escucharSockets();
     }
+
+
+    async conectarDB() {
+        await dbConnection();
+    }
+
 
     public static get instance() {
         return this._instance || (this._instance = new this());

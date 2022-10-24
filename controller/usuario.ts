@@ -4,8 +4,9 @@ import { Usuario } from '../models/usuario';
 
 export const listarUsuarios = async (req: Request, res: Response) => {
     try {
-        const query = { estado: true };
-        const usuarios = await Usuario.find(query);
+        // const query = { estado: true };
+        // const usuarios = await Usuario.find(query);
+        const usuarios = await Usuario.find();
 
         res.status(200).json({
             ok: true,

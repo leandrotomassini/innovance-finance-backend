@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
 
-import { listarUsuarios, crearUsuario, actualizarUsuario } from '../controller/usuario';
+import { listarUsuarios, crearUsuario, actualizarUsuario, verUsuario } from '../controller/usuario';
 
 
 import { emailExiste, esRoleValido } from '../helpers/db-validators';
@@ -16,6 +16,12 @@ router.get('/', [
     esAdminRole,
     validarCampos
 ], listarUsuarios);
+
+router.get('/:uid', [
+    validarJWT,
+    esAdminRole,
+    validarCampos
+], verUsuario);
 
 router.post('/', [
     validarJWT,

@@ -63,3 +63,21 @@ export const actualizarUsuario = async (req: Request, res: Response) => {
     }
 }
 
+export const verUsuario = async (req: Request, res: Response) => {
+    try {
+        const uid = req.params.uid;
+
+        const usuario = await Usuario.findById(uid);
+
+        res.status(200).json({
+            ok: true,
+            usuario
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({
+            ok: false,
+            error
+        });
+    }
+}

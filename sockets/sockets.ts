@@ -14,4 +14,8 @@ export const mensaje = (cliente: Socket, io: socketIO.Server) => {
         io.emit('usuariosActualizados');
     });
 
+    cliente.on('listarRoles', () => {
+        io.emit('rolesActualizados');
+    });
+
 }

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
 
-import { getRoles, postRol, putRol } from '../controller/rol';
+import { getRoles, postRol, putRol, getRol } from '../controller/rol';
 import { validarCampos } from '../middlewares/validar-campos';
 import { validarJWT } from '../middlewares/validar-jwt';
 import { esAdminRole } from '../middlewares/validar-roles';
@@ -26,5 +26,11 @@ router.put('/:id', [
     esAdminRole,
     validarCampos
 ], putRol);
+
+router.get('/:id', [
+    validarJWT,
+    esAdminRole,
+    validarCampos
+], getRol);
 
 export default router;

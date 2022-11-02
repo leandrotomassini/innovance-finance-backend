@@ -6,7 +6,7 @@ export const getRoles = async (req: Request, res: Response) => {
     try {
         const query = { estado: true };
 
-        const roles = await Rol.find(query);
+        const roles = await Rol.find();
 
         res.status(200).json({
             ok: true,
@@ -79,3 +79,22 @@ export const putRol = async (req: Request, res: Response) => {
     }
 }
 
+export const getRol = async (req: Request, res: Response) => {
+    try {
+        const rolId = req.params.id;
+
+        
+        const rol = await Rol.findById(rolId);
+
+        res.status(200).json({
+            ok: true,
+            rol
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({
+            ok: false,
+            error
+        });
+    }
+}

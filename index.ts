@@ -20,7 +20,6 @@ server.app.use('/api/roles', roles);
 server.app.use('/api/usuarios', usuarios);
 server.app.use('/api/auth', auth);
 
-
 server.start(() => {
     console.log(`Servidor corriendo en el puerto ${server.port}.`);
 });

@@ -18,4 +18,8 @@ export const mensaje = (cliente: Socket, io: socketIO.Server) => {
         io.emit('rolesActualizados');
     });
 
+    cliente.on('listarSubscripciones', () => {
+        io.emit('subscripcionesActualizadas');
+    });
+
 }

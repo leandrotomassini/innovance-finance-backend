@@ -6,6 +6,7 @@ import Server from './classes/server';
 import roles from './routes/rol';
 import usuarios from './routes/usuario';
 import auth from './routes/auth';
+import subscripciones from './routes/subscripciones';
 
 const server = Server.instance;
 
@@ -19,6 +20,7 @@ server.app.use(cors({ origin: true, credentials: true }));
 server.app.use('/api/roles', roles);
 server.app.use('/api/usuarios', usuarios);
 server.app.use('/api/auth', auth);
+server.app.use('/api/subscripciones', subscripciones);
 
 server.start(() => {
     console.log(`Servidor corriendo en el puerto ${server.port}.`);

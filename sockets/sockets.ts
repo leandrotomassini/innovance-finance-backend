@@ -26,4 +26,8 @@ export const mensaje = (cliente: Socket, io: socketIO.Server) => {
         io.emit('subscriptoresActualizados');
     });
 
+    cliente.on('listarArticulos', () => {
+        io.emit('articulosActualizados');
+    });
+
 }

@@ -8,6 +8,7 @@ import usuarios from './routes/usuario';
 import auth from './routes/auth';
 import subscripciones from './routes/subscripciones';
 import subscriptores from './routes/subscriptores';
+import articulos from './routes/articulos';
 
 const server = Server.instance;
 
@@ -23,6 +24,7 @@ server.app.use('/api/usuarios', usuarios);
 server.app.use('/api/auth', auth);
 server.app.use('/api/subscripciones', subscripciones);
 server.app.use('/api/subscriptores', subscriptores);
+server.app.use('/api/articulos', articulos);
 
 server.start(() => {
     console.log(`Servidor corriendo en el puerto ${server.port}.`);
